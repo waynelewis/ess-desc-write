@@ -1,0 +1,24 @@
+# File: desc-write.db
+# Author: Wayne Lewis <wayne.lewis@esss.se>
+# Date: 2019-02-10
+
+record(stringin, "$(SYS)desc") {
+  field(DESC, "Input string field")
+  field(VAL,  "Starting descriptor")
+  # PINI to remove undefined/UDF/invalid status
+  # for demo purposes only. Can be removed in production.
+  field(PINI, "YES")
+}
+
+record(stringout, "$(SYS)write_desc") {
+  field(DESC, "Transfer to .DESC")
+  field(DOL,  "$(SYS)desc CPP")
+  field(OUT,  "$(SYS)target.DESC")
+  field(OMSL, "closed_loop")
+}
+
+record(ai, "$(SYS)target") {
+  # PINI to remove undefined/UDF/invalid status
+  # for demo purposes only. Can be removed in production.
+  field(PINI, "YES")
+}
